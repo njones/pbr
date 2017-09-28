@@ -7,7 +7,7 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	val, err := os.Open("test/localhost.key")
+	val, err := os.Open("test/localhost.rsa.key")
 	if err != nil {
 		t.Errorf("open .pem failed: %v", err)
 	}
@@ -17,7 +17,7 @@ func TestMain(t *testing.T) {
 		t.Errorf("have:\n%s\nwant:\n%s", buf.String(), expectKey)
 	}
 
-	val, err = os.Open("test/localhost.crt")
+	val, err = os.Open("test/localhost.rsa.crt")
 	if err != nil {
 		t.Errorf("open .pem failed: %v", err)
 	}
@@ -27,7 +27,7 @@ func TestMain(t *testing.T) {
 		t.Errorf("have:\n%s\nwant:\n%s", buf.String(), expectCrt)
 	}
 
-	val, err = os.Open("test/localhost.csr")
+	val, err = os.Open("test/localhost.rsa.csr")
 	if err != nil {
 		t.Errorf("open .pem failed: %v", err)
 	}
